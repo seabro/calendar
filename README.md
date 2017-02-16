@@ -13,9 +13,9 @@ You can add a function to the calendar to execute when the onclick event is trig
 For the calendar to function properly you need to include [jQuery](http://jquery.com/), and [Twitter Bootstrap](http://getbootstrap.com).
 View the manifest *zabuto_calendar.jquery.json* for more information on the supported versions.
 
-Include the script *zabuto_calendar.min.js* and the stylesheet *zabuto_calendar.min.css* in your page.
+Include the script *zcalendar.min.js* and the stylesheet *zabuto_calendar.min.css* in your page.
 
-    <script src="{YOUR_PATH}/zabuto_calendar.min.js"></script>
+    <script src="{YOUR_PATH}/zcalendar.min.js"></script>
     <link rel="stylesheet" type="text/css" href="{YOUR_PATH}/zabuto_calendar.min.css">
 
 Use this code to initialize the calendar:

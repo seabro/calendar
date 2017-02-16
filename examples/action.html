@@ -23,8 +23,8 @@
     <link rel="stylesheet" type="text/css" href="//zabuto.com/assets/css/examples.css">
 
     <!-- Zabuto Calendar -->
-    <script src="../zabuto_calendar.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../zabuto_calendar.min.css">
+    <script src="../zcalendar.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../zcalendar.min.css">
 
 </head>
 <body>
@@ -111,7 +111,7 @@ function myNavFunction(id) {
                         $(this).hide();
                     });
 
-                    $("#my-calendar").zabuto_calendar({
+                    $("#my-calendar").zcalendar({
                         action: function () {
                             return myDateFunction(this.id, false);
                         },
@@ -168,7 +168,7 @@ function myNavFunction(id) {
         $(&quot;#date-popover&quot;).popover(...);
         ...
 
-        $(&quot;#my-calendar&quot;).zabuto_calendar({
+        $(&quot;#my-calendar&quot;).zcalendar({
             <span>action: function () {
                 return myDateFunction(this.id, false);
             },

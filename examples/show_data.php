@@ -2,7 +2,7 @@
 /**
  * Example of JSON data for calendar
  *
- * @package zabuto_calendar
+ * @package zcalendar
  */
 
 if (!empty($_REQUEST['year']) && !empty($_REQUEST['month'])) {
