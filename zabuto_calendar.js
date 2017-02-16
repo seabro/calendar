@@ -41,6 +41,7 @@ $.fn.zabuto_calendar = function (options) {
         $calendarElement.data('legendList', opts.legend);
         $calendarElement.data('actionFunction', opts.action);
         $calendarElement.data('actionNavFunction', opts.action_nav);
+        $calendarElement.data('clickEvents', opts.events_clickable);
 
         drawCalendar();
 
@@ -98,10 +99,11 @@ $.fn.zabuto_calendar = function (options) {
                                     if (itemLabel !== '') {
                                         var itemBadge = '';
                                         if ('badge' in item) {
+                                            var badgeClassName = null;
                                             if (typeof(item.classname) === 'undefined') {
-                                                var badgeClassName = 'badge-event';
+                                                badgeClassName = 'badge-event';
                                             } else {
-                                                var badgeClassName = item.classname;
+                                                badgeClassName = item.classname;
                                             }
                                             itemBadge = '<span class="badge ' + badgeClassName + '">' + item.badge + '</span> ';
                                         }
@@ -112,10 +114,11 @@ $.fn.zabuto_calendar = function (options) {
                                     if (itemLabel !== '') {
                                         itemLabel = '<span>' + itemLabel + '</span>';
                                     }
+                                    var listClassName = null;
                                     if (typeof(item.classname) === 'undefined') {
-                                        var listClassName = 'event';
+                                        listClassName = 'event';
                                     } else {
-                                        var listClassName = 'event-styled ' + item.classname;
+                                        listClassName = 'event-styled ' + item.classname;
                                     }
                                     $legendObj.append('<span class="legend-' + item.type + '"><ul class="legend"><li class="' + listClassName + '"></li></u>' + itemLabel + '</span>');
                                     break;
@@ -174,7 +177,7 @@ $.fn.zabuto_calendar = function (options) {
                 if (typeof($calendarElement.data('actionNavFunction')) === 'function') {
                     $prevMonthNav.click($calendarElement.data('actionNavFunction'));
                 }
-                $prevMonthNav.click(function (e) {
+                $prevMonthNav.click(function () {
                     drawTable($calendarElement, $tableObj, prevYear, prevMonth);
                 });
             }
@@ -199,7 +202,7 @@ $.fn.zabuto_calendar = function (options) {
                 if (typeof($calendarElement.data('actionNavFunction')) === 'function') {
                     $nextMonthNav.click($calendarElement.data('actionNavFunction'));
                 }
-                $nextMonthNav.click(function (e) {
+                $nextMonthNav.click(function () {
                     drawTable($calendarElement, $tableObj, nextYear, nextMonth);
                 });
             }
@@ -388,7 +391,7 @@ $.fn.zabuto_calendar = function (options) {
                 dataType: 'json'
             }).done(function (response) {
                 var events = [];
-                $.each(response, function (k, v) {
+                $.each(response, function (k) {
                     events.push(response[k]);
                 });
                 $calendarElement.data('events', events);
@@ -410,6 +413,11 @@ $.fn.zabuto_calendar = function (options) {
                     var $dayElement = $('#' + id + '_day');
 
                     $dowElement.data('hasEvent', true);
+
+                    if ($calendarElement.data('clickEvents') === true) {
+                        $dowElement.removeClass('dow-clickable');
+                        $dowElement.off("click");
+                    }
 
                     if (typeof(value.title) !== 'undefined') {
                         $dowElement.attr('title', value.title);
@@ -567,7 +575,8 @@ $.fn.zabuto_calendar_defaults = function () {
         ajax: false,
         legend: false,
         action: false,
-        action_nav: false
+        action_nav: false,
+        events_clickable: true
     };
     return settings;
 };
