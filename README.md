@@ -16,7 +16,7 @@ View the manifest *zabuto_calendar.jquery.json* for more information on the supp
 Include the script *zcalendar.min.js* and the stylesheet *zabuto_calendar.min.css* in your page.
 
     <script src="{YOUR_PATH}/zcalendar.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="{YOUR_PATH}/zabuto_calendar.min.css">
+    <link rel="stylesheet" type="text/css" href="{YOUR_PATH}/zcalendar.min.css">
 
 Use this code to initialize the calendar:
 
@@ -24,7 +24,7 @@ Use this code to initialize the calendar:
 
     <script type="application/javascript">
         $(document).ready(function () {
-            $("#my-calendar").zabuto_calendar({language: "en"});
+            $("#my-calendar").zcalendar({language: "en"});
         });
     </script>
 
@@ -45,8 +45,8 @@ You can customize the calendar with several settings:
 ## Date Events
 You are able to add date events by using fixed data or an AJAX request with JSON data.
 
-```$("#my-calendar").zabuto_calendar( { data: [] } );```
-```$("#my-calendar").zabuto_calendar( { ajax: { url: "{YOUR_URL}" } } );```
+```$("#my-calendar").zcalendar( { data: [] } );```
+```$("#my-calendar").zcalendar( { ajax: { url: "{YOUR_URL}" } } );```
 
 The JSON data has to be an array of events in a specified format.
 
@@ -56,7 +56,7 @@ The JSON data has to be an array of events in a specified format.
 You can use the *title*, *body* and *footer* elements of the element data in a Bootstrap.js modal window.
 The information will be shown with a click on the day of the event.
 
-```$("#my-calendar").zabuto_calendar( { ajax: { url: "{YOUR_URL}", modal: true } } );```
+```$("#my-calendar").zcalendar( { ajax: { url: "{YOUR_URL}", modal: true } } );```
 
 ### Legend
 You can add a legend to clarify the styling of the date events shown on the calendar.
@@ -77,7 +77,7 @@ You can add functions to the calendar to execute when onclick events are trigger
 ### Date
 You can add a function to the calendar to execute when the onclick event is triggered on a specific day.
 
-```$("#my-calendar").zabuto_calendar( { action: function() { myDateFunction(this.id); } } );```
+```$("#my-calendar").zcalendar( { action: function() { myDateFunction(this.id); } } );```
 
 To retrieve the date you need to access the element information using the calendar day ID. You can also check if an event is available for this date.
 
@@ -89,7 +89,7 @@ To retrieve the date you need to access the element information using the calend
 ### Navigation
 You are also able to add a function to the onclick event of the navigation to the previous or next month.
 
-```$("#my-calendar").zabuto_calendar( { action_nav: function() { myNavFunction(this.id); } } );```
+```$("#my-calendar").zcalendar( { action_nav: function() { myNavFunction(this.id); } } );```
 
 To retrieve information on the navigation action you need to access the element information using the calendar navigation ID. To can access the navigation info itself (prev/next) and information on the previous or next year and month.
 
